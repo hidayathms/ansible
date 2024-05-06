@@ -45,7 +45,7 @@ Inventory is nothing but the list of machines ip or dns names that you want ansi
     Playbook is an ansible script to execute things parallely
     Palybook is a list of play, Play is a list of task, task is an action you want to execute
 
-# what is the language used by playboo
+# what is the language used by playbook
     YAML is the language  used by Ansible to write playbook
     YAML is indentation specific
 
@@ -60,6 +60,9 @@ Inventory is nothing but the list of machines ip or dns names that you want ansi
                     -DEVOPS
                     -AWS
                     -GCP
+
+# How to run ansible-playbooks?
+$ ansible-playbook i inv all -m ping -e ansible_user=centos -e ansible_password=DevOps321 playbookname.yaml
 
 
 
