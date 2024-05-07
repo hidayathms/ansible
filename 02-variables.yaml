@@ -21,12 +21,10 @@
      ansible.builtin.debug:
       msg: Value of the URL is {{XYZ}}
 
-   - name: Printing the variable from Command Line
-     ansible.builtin.debug:
-      msg: Value of the URL is {{XYZ}}
-
    - name: Printing the ENC specific values
      ansible.builtin.debug:
       msg: "Instance Type is {{INSTANCE_TYPE}} and disk size is {{DISK_SIZE}}"
 
 # Variable precedence : Command Line > local variable > Global variables 
+
+# 
