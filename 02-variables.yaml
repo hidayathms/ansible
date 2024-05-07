@@ -7,6 +7,6 @@
      ansible.builtin.debug:
       msg: Value of the URL is {{URL}}
 
-   - name: Printing the variable
-     ansible.builtin.debug:
-       msg: Value of the XYZ is {{XYZ}}
+  #  - name: Printing the variable
+  #    ansible.builtin.debug:
+  #      msg: Value of the XYZ is {{XYZ}}
