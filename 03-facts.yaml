@@ -9,6 +9,6 @@
   tasks:
    - name: printing the facts
      ansible.builtin.debug:
-      msg: OS Distribution is {{ansible.distribution}}
+      msg: OS Distribution is {{ansible_distribution}}
 
 
