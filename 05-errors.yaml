@@ -1,9 +1,12 @@
+# By default, if any o fthe task fails in a playbook, the sub sequent tasks wont be executed.
+
 - name: Demo on Errors
   hosts: all
   tasks:
     - name: Chcek toomcat is running or not
       ansible.builtin.shell: ps -ef | grep java |grep -v grep
       register: OUT
+      ignore_errors: true
 
     - name: Run the shipping
       ansible.builtin.debug:
