@@ -1,0 +1,2 @@
+INSTANCE_TYPE: "t2.micro"
+DISK_SIZE: "10gb"

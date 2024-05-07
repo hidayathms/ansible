@@ -16,3 +16,5 @@
   - name: Task2 of play1                # Name of the task
     ansible.builtin.debug:
      msg: " Hai from task2 of play2"
+
+  

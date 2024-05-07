@@ -4,6 +4,8 @@
   hosts: all
   vars: 
     URL: Play.google.com  # global variable
+  vars_files:
+    - "{{ENV}}.yaml"
   tasks:
    - name: Printing the variable
      ansible.builtin.debug:
@@ -19,5 +21,12 @@
      ansible.builtin.debug:
       msg: Value of the URL is {{XYZ}}
 
+   - name: Printing the variable from Command Line
+     ansible.builtin.debug:
+      msg: Value of the URL is {{XYZ}}
 
-# Variable precedence : local variable > Global variables
+   - name: Printing the ENC specific values
+     ansible.builtin.debug:
+      msg: "Instance Type is {{INSTANCE_TYPE:}} and disk size is {{DISK_SIZE}}"
+
+# Variable precedence : Command Line > local variable > Global variables 
