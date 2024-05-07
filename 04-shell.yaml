@@ -9,8 +9,8 @@
         msg: The system uptime is {{OUT.stdout}}
 
     - name: Capturing the exit code using set_fact
-      set_fact
-      EXITCODE: "{{OUT.rc}}"
+      set_fact: 
+        EXITCODE: "{{OUT.rc}}"
 
     - name: printing exit code 
       ansible.builtin.debug:
