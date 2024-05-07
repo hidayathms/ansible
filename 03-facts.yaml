@@ -6,7 +6,7 @@
 
 - name: Demo on facts
   hosts: dev
-  gather_facts: true
+  gather_facts: true # by default gather fact are true
   tasks:
    - name: printing the OS details
      ansible.builtin.debug:
