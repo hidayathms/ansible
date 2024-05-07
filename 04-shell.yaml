@@ -2,4 +2,8 @@
   hosts: all
   tasks:
     - name: Running uptime commands
-      ansible.builtin.shell: uptime
+      ansible.builtin.shell: uptime         #shell module wont offer output buy default, need to register if required
+      register: OUT
+    - name: printing system uptime
+      ansible.builtin.debug:
+        msg: The system uptime is {{OUT}}
