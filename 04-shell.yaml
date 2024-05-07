@@ -1,0 +1,5 @@
+- name: demo on using shelll commands
+  hosts: all
+  tasks:
+    - name: Running uptime commands
+      ansible.builtin.shell: uptime
