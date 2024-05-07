@@ -15,7 +15,6 @@
      vars: 
        URL: task.google.com  #task level or local variable
   
-  tasks:
    - name: Printing the variable from Command Line
      ansible.builtin.debug:
       msg: Value of the URL is {{XYZ}}
