@@ -27,6 +27,6 @@
 
    - name: Printing the ENC specific values
      ansible.builtin.debug:
-      msg: "Instance Type is {{INSTANCE_TYPE:}} and disk size is {{DISK_SIZE}}"
+      msg: "Instance Type is {{INSTANCE_TYPE}} and disk size is {{DISK_SIZE}}"
 
 # Variable precedence : Command Line > local variable > Global variables 
