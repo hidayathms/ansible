@@ -8,4 +8,4 @@
 
     - name: printing the detals
       ansible.builtin.debug:
-        msg: The system uptime is {{OUT.stdout}}
+        msg: Username is {{OUT.stdout}}
