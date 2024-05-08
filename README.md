@@ -75,5 +75,24 @@ Inventory is nothing but the list of machines ip or dns names that you want ansi
  To resolve this need to include this command in task level i.e "ignore_errors: true"
 
 
+# Ansible always suggests to organize the files, tasks and variables in a standarf format using ROLES.
+Roles play a very important role in ansible
 
+# Role directory structure
+Roles let you automatically load related vars, files, tasks, handlers, and other Ansible artifacts based on a known file structure. After you group your content into roles, you can easily reuse them and share them with other users.
+roles/
+    frontend/             # this hierarchy represents a "role"
+        tasks/            #
+            main.yml      #  <-- tasks file can include smaller files if warranted
+        handlers/         #
+            main.yml      #  <-- handlers file
+        templates/        #  <-- files for use with the template resource
+            ntp.conf.j2   #  <------- templates end in .j2
+        files/            #
+            bar.txt       #  <-- files for use with the copy resource
+            foo.sh        #  <-- script files for use with the script resource
+        vars/             #
+            main.yml      #  <-- variables associated with this role
+        defaults/         #
+            main.yml      #  <-- default lower priority variables for this role
 

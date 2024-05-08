@@ -1,0 +1,8 @@
+  - name : Installing Nginx
+    ansible.builtin.package:
+      name: nginx 
+      state: present
+  - name: Starting service nginx
+    ansible.builtin.service:
+      name: nginx
+      state: started
