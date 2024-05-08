@@ -5,5 +5,5 @@
     - name: Copy file with owner and permissions
       ansible.builtin.copy:
        src: agenda
-       dest: /home/cenos/agenda
+       dest: /home/centos/agenda
  
