@@ -4,7 +4,7 @@
     - name: Demo on using loops
       ansible.builtin.debug:
        msg: "Value is {{item}}"
-       loops:
+       loop:
         - 100
         - 200
         - 300
