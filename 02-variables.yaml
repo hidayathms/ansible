@@ -20,8 +20,7 @@
    - name: Printing the variable from Command Line
      ansible.builtin.debug:
       msg: Value of the URL is {{XYZ}}
-     ignore_errors: true
-
+    
    - name: Printing the ENC specific values
      ansible.builtin.debug:
       msg: "Instance Type is {{INSTANCE_TYPE}} and disk size is {{DISK_SIZE}}"
