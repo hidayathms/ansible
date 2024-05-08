@@ -4,6 +4,6 @@
   tasks:
     - name: Copy file with owner and permissions
       ansible.builtin.copy:
-       src: ansible/agenda
-       dest: /home/cenos/
+       src: agenda
+       dest: /home/cenos/agenda
  
