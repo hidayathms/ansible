@@ -62,7 +62,7 @@ Inventory is nothing but the list of machines ip or dns names that you want ansi
                     -GCP
 
 # How to run ansible-playbooks?
- $ ansible-playbook i inv all -m ping -e ansible_user=centos -e ansible_password=DevOps321 playbookname.yaml
+ $ ansible-playbook -i inv all -m ping -e ansible_user=centos -e ansible_password=DevOps321 playbookname.yaml
 
 # For variable when to use quotes in ansible playbooks?
  Ansible support quotes for variables, 
@@ -70,6 +70,10 @@ Inventory is nothing but the list of machines ip or dns names that you want ansi
  when you are just using the varialble only then you dont need to place quotes insted use it directly {{ENV}}
 
  when you are  the varialble between line only then place quotes insted  example " Name of the environment {{ENV}}"
+
+# if task one is failure other task will not execute
+ To resolve this need to include this command in task level i.e "ignore_errors: true"
+
 
 
 

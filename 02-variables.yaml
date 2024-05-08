@@ -13,7 +13,7 @@
 
    - name: Printing the variable
      ansible.builtin.debug:
-       msg: Value of the XYZ is {{URL}}
+      msg: Value of the XYZ is {{URL}}
      vars: 
        URL: task.google.com  #task level or local variable
   

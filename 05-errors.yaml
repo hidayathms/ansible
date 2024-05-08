@@ -6,7 +6,7 @@
     - name: Chcek toomcat is running or not
       ansible.builtin.shell: ps -ef | grep java |grep -v grep
       register: OUT
-      ignore_errors: true
+      ignore_errors: true  
 
     - name: Run the shipping
       ansible.builtin.debug:
