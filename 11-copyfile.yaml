@@ -6,8 +6,6 @@
       ansible.builtin.copy:
        src: agenda
        dest: /home/centos/ansi/agenda
-       state: directory
-
-      #  mode: '0755'
+      
 
  
