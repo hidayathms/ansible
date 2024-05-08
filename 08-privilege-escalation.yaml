@@ -1,5 +1,6 @@
 - name: demo on privilage escalation
   hosts: all
+  become: yes         # Run the playbook as root user, this like running the playbook as sudo
   tasks:
     - name: Running uptime commands
       ansible.builtin.shell: id         #shell module wont offer output buy default, need to register if required
