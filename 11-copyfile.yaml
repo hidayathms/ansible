@@ -8,4 +8,15 @@
        dest: /home/centos/agenda
       
 
- 
+- name: Extract foo.tgz into /var/lib/foo
+  ansible.builtin.unarchive:
+    src: foo.tgz        # source file is on the machine where you are running ansible
+    dest: /var/lib/foo  # on remote server files are going to be copied.
+
+- name: Unarchive a file that needs to be downloaded (added in 2.0)
+  ansible.builtin.unarchive:
+    src: https://example.com/example.zip  # URL from where files will be downloaded
+    dest: /usr/local/bin    # files are copied on remote machine
+    remote_src: yes         # this will ensure that files are downloaded in remote machine and extracted there itself.
+  
+  
