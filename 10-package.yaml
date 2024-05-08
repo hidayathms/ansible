@@ -1,3 +1,5 @@
+# Package modue is going to install the package and this works irrespective of flavors
+
 - name: Demo on using package moduele
   hosts: all
   become: yes
