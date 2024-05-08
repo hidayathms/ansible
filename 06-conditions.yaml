@@ -1,7 +1,7 @@
 - name: Demo on conditions
   hosts: all
   vars:
-    action: false
+    action: true
   tasks:
     - name: Run this task when os distro is centos only
       ansible.builtin.debug:
@@ -20,5 +20,5 @@
 
     - name: Run this action when action is declared
       ansible.builtin.debug:
-       msg : Action is defined
+       msg : Action is undefined
       when: action is undefined
