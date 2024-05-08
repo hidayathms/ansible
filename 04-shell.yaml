@@ -3,7 +3,7 @@
   tasks:
     - name: Running uptime commands
       ansible.builtin.shell: uptime         #shell module wont offer output buy default, need to register if required
-      register: OUT
+      register: OUT                         # Output will be register in a variable called OUT, which can be used in any of the tasks of the play
     - name: printing system uptime
       ansible.builtin.debug:
         msg: The system uptime is {{OUT.stdout}}
@@ -13,4 +13,4 @@
         EXITCODE: "{{OUT.rc}}"
     - name: printing exit code 
       ansible.builtin.debug:
-        msg: "Exit code is {{OUT.rc}}"
+        msg: "Exit code is {{EXITCODE}}"
