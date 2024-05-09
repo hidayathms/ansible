@@ -1,5 +1,17 @@
-  - name : Disabling the default nodejs:10 repo
-    ansible.builtin.package:
-      name: nodejs
-      state: latest
+  - name: Remove the nodejs 10
+    community.general.npm:
+      name: nodejs.10
+      global: true
+      state: absent
+
+  - name: Remove the nodejs 10
+    community.general.npm:
+      name: nodejs.18
+      global: true
+      state: present
+
+  # - name : Disabling the default nodejs:10 repo
+  #   ansible.builtin.package:
+  #     name: nodejs.18
+  #     state: present
 
