@@ -1,9 +1,5 @@
   - name : Disabling the default nodejs:10 repo
     ansible.builtin.package:
       name: nodejs
-      state: absent
+      state: latest
 
-  - name : Installing nodejs:18 in {{COMPONENT}}
-    ansible.builtin.package:
-      name: nodejs:18
-      state: present
