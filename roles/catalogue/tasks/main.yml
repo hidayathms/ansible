@@ -25,7 +25,7 @@
 
 - name: Performing Cleanup
   ansible.builtin.file:
-    path: //home/{{APPUSER}/{{COMPONENT}}
+    path: /home/{{APPUSER}/{{COMPONENT}}
     state: absent
 
 # - name: Copying {{COMPONENT}}
