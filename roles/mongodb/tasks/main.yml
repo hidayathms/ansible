@@ -20,3 +20,9 @@
       state: started
       enabled: true
       daemon_reload: true
+
+  - name: Download and Extracting {{COMPONENT}}
+    ansible.builtin.unarchive:
+      src: https://github.com/stans-robot-project/mongodb/archive/main.zip
+      dest: /tmp
+      remote_src: yes    
