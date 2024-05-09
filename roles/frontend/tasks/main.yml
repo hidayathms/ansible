@@ -18,8 +18,13 @@
       path: /usr/share/nginx/html
       state: absent
 
-  - name: Copy file with owner and permissions
+  - name: Copying {{COMPONENT}}
     ansible.builtin.copy:
        src: /tmp/frontend-main/static/
        dest: /usr/share/nginx/html
        remote_src: yes
+
+  - name: Copying {{COMPONENT}}
+    ansible.builtin.copy:
+       src: roboshop.conf
+       dest: /etc/nginx/default.d/roboshop.conf
