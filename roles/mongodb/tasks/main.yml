@@ -30,7 +30,7 @@
   - name: Injecting User schema
     community.mongodb.mongodb_shell:
       login_user: admin
-      login_pasword: 
+      login_pasword: secret
       file: "/tmp/mongodb-main/users.js"
       idempotent: yes
  
