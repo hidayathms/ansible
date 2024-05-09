@@ -29,11 +29,11 @@
 
   - name: Injecting User schema
     community.mongodb.mongodb_shell:
-      file: "users.js"
+      file: "/mongodb-main/users.js"
       idempotent: yes
  
 
   - name: Inject catalogue schema
     community.mongodb.mongodb_shell:
-      file: "catalogue.js"
+      file: "/mongodb-main/catalogue.js"
       idempotent: yes
