@@ -31,7 +31,7 @@
     community.mongodb.mongodb_shell:
       login_user: admin
       login_password: secret
-      file: "/tmp/mongodb-main/users.js"
+      file: " /tmp/mongodb-main/users.js "
       idempotent: yes
  
 
