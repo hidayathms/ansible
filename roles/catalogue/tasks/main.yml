@@ -1,0 +1,9 @@
+  - name : Installing {{COMPONENT}}
+    ansible.builtin.package:
+      name: nodejs
+      state: absent
+
+  - name : Installing {{COMPONENT}}
+    ansible.builtin.package:
+      name: nodejs:18
+      state: present
