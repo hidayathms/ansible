@@ -25,7 +25,10 @@
        src: roboshop.conf
        dest: /etc/nginx/default.d/roboshop.conf
 
-  - name: Starting service nginx
-    ansible.builtin.service:
+  - name: Restarting{{COMPONENT}}
+    ansible.builtin.systemd_service:
       name: nginx
-      state: started
+      state: restarted
+      enabled: true
+      daemon_reload: true
+
