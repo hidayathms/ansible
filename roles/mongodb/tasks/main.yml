@@ -33,11 +33,11 @@
       file: " /tmp/mongodb-main/{{item}}.js "
       idempotent: yes
     loop:
-      -user.js
-      -catalogue.js
+      - user.js
+      - catalogue.js
 
-  - name: Inject catalogue schema
-    community.mongodb.mongodb_shell:
-      mongo_cmd: mongo
-      file: "/tmp/mongodb-main/catalogue.js"
-      idempotent: yes
+  # - name: Inject catalogue schema
+  #   community.mongodb.mongodb_shell:
+  #     mongo_cmd: mongo
+  #     file: "/tmp/mongodb-main/catalogue.js"
+  #     idempotent: yes
