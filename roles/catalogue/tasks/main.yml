@@ -5,8 +5,8 @@
 
 - name: Install latest Nodejs 18 package
   ansible.builtin.dnf:
-    name: nodejs:18
-    state: present
+    name: nodejs
+    state: latest
 
   # - name : Disabling the default nodejs:10 repo
   #   ansible.builtin.package:
