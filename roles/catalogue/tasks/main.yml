@@ -8,8 +8,8 @@
     name: nodejs
     state: latest
 
-  # - name : Disabling the default nodejs:10 repo
-  #   ansible.builtin.package:
-  #     name: nodejs.18
-  #     state: present
+- name : Disabling the default nodejs:10 repo
+  ansible.builtin.package:
+    name: nodejs
+    state: present
 
