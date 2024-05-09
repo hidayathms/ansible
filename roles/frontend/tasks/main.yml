@@ -2,10 +2,6 @@
     ansible.builtin.package:
       name: nginx 
       state: present
-  - name: Starting service nginx
-    ansible.builtin.service:
-      name: nginx
-      state: started
 
   - name: Download and Extracting {{COMPONENT}}
     ansible.builtin.unarchive:
@@ -28,3 +24,8 @@
     ansible.builtin.copy:
        src: roboshop.conf
        dest: /etc/nginx/default.d/roboshop.conf
+
+  - name: Starting service nginx
+    ansible.builtin.service:
+      name: nginx
+      state: started
