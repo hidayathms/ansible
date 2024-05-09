@@ -5,7 +5,7 @@
 
   - name : Installing {{COMPONENT}}
     ansible.builtin.package:
-      name: monogdb
+      name: mmongodb-org
       state: present
 
   - name: Enabling {{COMPONENT}} visibility
