@@ -1,0 +1,22 @@
+  - name: Configuring {{COMPONENT}} repository
+    ansible.builtin.copy:
+       src: mongo.repo                      # Location of the file on the machine where youare running the script
+       dest: /etc/yum.repos.d/mongodb.repo  # Location of the file where you want to copy this to remote server
+
+  - name : Installing {{COMPONENT}}
+    ansible.builtin.package:
+      name: monogdb-org 
+      state: present
+
+  - name: Enabling {{COMPONENT}} visibility
+    ansible.builtin.replace:
+     path: /etc/mongod.conf
+     regexp: '127.0.0.0'
+     replace: '0.0.0.0'
+
+  - name: Restarting {{COMPONENT}} service
+    ansible.builtin.systemd_service:
+      name: mongod
+      state: started
+      enabled: true
+      daemon_reload: true
