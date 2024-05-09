@@ -30,7 +30,7 @@
   - name: Injecting User schema
     community.mongodb.mongodb_shell:
       mongo_cmd: auto
-      file: "/tmp/mongodb-main/users.js"
+      file: " /tmp/mongodb-main/users.js "
       idempotent: yes
   
 
