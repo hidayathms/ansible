@@ -29,7 +29,7 @@
 
   - name: Injecting User schema
     community.mongodb.mongodb_shell:
-      # mongo_cmd: mongo
+      mongo_cmd: auto
       file: "/tmp/mongodb-main/{{item}}.js"
       idempotent: yes
     loop:
