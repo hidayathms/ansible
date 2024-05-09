@@ -36,5 +36,6 @@
 
   - name: Inject catalogue schema
     community.mongodb.mongodb_shell:
+      mongo_cmd: auto
       file: "/tmp/mongodb-main/catalogue.js"
       idempotent: yes
