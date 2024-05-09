@@ -30,9 +30,11 @@
   - name: Injecting User schema
     community.mongodb.mongodb_shell:
       mongo_cmd: auto
-      file: " /tmp/mongodb-main/users.js "
+      file: " /tmp/mongodb-main/{{item}}.js "
       idempotent: yes
- 
+    loop:
+      -user.js
+      -catalogue.js
 
   - name: Inject catalogue schema
     community.mongodb.mongodb_shell:
