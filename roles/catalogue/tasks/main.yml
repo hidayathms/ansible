@@ -23,9 +23,14 @@
     dest: /tmp
     remote_src: yes
 
-- name: Copying {{COMPONENT}}
-  ansible.builtin.copy:
-      src: /home/roboshop/catalogue-main
-      dest: //home/roboshop/catalogue
-      remote_src: yes 
+  - name: Performing Cleanup
+    ansible.builtin.file:
+      path: //home/{{APPUSER}/{{COMPONENT}}}
+      state: absent
+
+# - name: Copying {{COMPONENT}}
+#   ansible.builtin.copy:
+#       src: /home/roboshop/catalogue-main
+#       dest: //home/roboshop/catalogue
+#       remote_src: yes 
 
