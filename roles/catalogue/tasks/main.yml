@@ -23,10 +23,10 @@
     dest: /tmp
     remote_src: yes
 
-  - name: Performing Cleanup
-    ansible.builtin.file:
-      path: //home/{{APPUSER}/{{COMPONENT}}}
-      state: absent
+- name: Performing Cleanup
+  ansible.builtin.file:
+    path: //home/{{APPUSER}/{{COMPONENT}}}
+    state: absent
 
 # - name: Copying {{COMPONENT}}
 #   ansible.builtin.copy:
