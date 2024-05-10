@@ -1,4 +1,4 @@
-  - name: Enable Redis module using DNF
+  - name: Install RPM repo for redis
     ansible.builtin.shell: dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y
 
   - name: Enable Redis module using DNF
