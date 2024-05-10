@@ -36,7 +36,6 @@
       group: "{{APPUSER}}"
       remote_src: yes 
 
-- name: Install artifacts in {{COMPONENT}}
+- name: Generating {{COMPONENT}} artifacts
   community.general.npm:
-    name: npm
-    path: /home/{{APPUSER}}/{{COMPONENT}}/
+     path: /home/{{APPUSER}}/{{COMPONENT}}/
