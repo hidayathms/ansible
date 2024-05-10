@@ -1,11 +1,22 @@
   - name: Install RPM repo for redis
     ansible.builtin.shell: dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y
 
-  - name: Install nginx rpm from a local file
+  - name: Install Redis in {{COMPONENT}}
     ansible.builtin.dnf:
       name: redis
       state: present
-    
+
+  - name: Enabling {{COMPONENT}} visibility
+    ansible.builtin.replace:
+     path: /etc/redis.conf
+     regexp: '127.0.0.0'
+     replace: '0.0.0.0'
+
+  - name: Enabling {{COMPONENT}} visibility
+    ansible.builtin.replace:
+     path: /etc/redis/redis.conf
+     regexp: '127.0.0.0'
+     replace: '0.0.0.0'
 
   # - name : Installing {{COMPONENT}}
   #   ansible.builtin.package:
