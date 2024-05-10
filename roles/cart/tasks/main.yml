@@ -1,0 +1,53 @@
+# - name: Remove the Nodejs 10 package
+#   ansible.builtin.dnf:
+#     name: nodejs
+#     state: absent
+
+# - name: Install latest Nodejs 18 package
+#   ansible.builtin.dnf:
+#     name: nodejs
+#     state: latest
+
+- name : Installing Node JS in {{COMPONENT}}
+  ansible.builtin.package:
+    name: nodejs
+    state: present
+
+- name: Creating {{APPUSER}} user
+  ansible.builtin.user:
+    name: "{{APPUSER}}"
+
+- name: Download and Extracting {{COMPONENT}}
+  ansible.builtin.unarchive:
+    src: https://github.com/stans-robot-project/{{COMPONENT}}/archive/main.zip
+    dest: /tmp
+    remote_src: yes
+
+- name: Performing Cleanup
+  ansible.builtin.file:
+    path: /home/{{APPUSER}}/{{COMPONENT}}
+    state: absent
+
+- name: Copying {{COMPONENT}} to {{APPUSER}}
+  ansible.builtin.copy:
+      src: /tmp/{{COMPONENT}}-main/
+      dest: /home/{{APPUSER}}/{{COMPONENT}}/
+      owner: "{{APPUSER}}"
+      group: "{{APPUSER}}"
+      remote_src: yes 
+
+- name: Generating {{COMPONENT}} artifacts
+  community.general.npm:
+     path: /home/{{APPUSER}}/{{COMPONENT}}/
+
+- name: Copying {{COMPONENT}} systemd file
+  ansible.builtin.template:
+    src: systemd.service
+    dest: /etc/systemd/system/{{COMPONENT}}.service
+
+- name: Restarting {{COMPONENT}} service
+  ansible.builtin.systemd_service:
+    name: "{{COMPONENT}}"
+    state: restarted
+    enabled: yes
+    daemon_reload: true
