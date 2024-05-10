@@ -1,15 +1,10 @@
   - name: Install RPM repo for redis
     ansible.builtin.shell: dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y
 
-  - name: Enable Redis module using DNF
-    ansible.builtin.dnf:
-      name: redis:remi-6.2 -y
-      enabled: yes
-
   - name: Install nginx rpm from a local file
     ansible.builtin.dnf:
       name: redis
-      state: latest
+      state: present
     
 
   # - name : Installing {{COMPONENT}}
