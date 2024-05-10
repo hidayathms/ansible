@@ -6,7 +6,7 @@
 
   - name: Install nginx rpm from a local file
     ansible.builtin.dnf:
-      name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm 
+      name: redis:remi-6.2 
       state: present
       remote_src: yes
 
