@@ -39,3 +39,8 @@
 - name: Generating {{COMPONENT}} artifacts
   community.general.npm:
      path: /home/{{APPUSER}}/{{COMPONENT}}/
+
+- name: Copying {{COMPONENT}} systemd file
+  ansible.builtin.copy:
+    src: systemd.service
+    dest: /etc/systemd/system/{{COMPONENT}}.service
