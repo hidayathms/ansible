@@ -1,0 +1,28 @@
+  - name: Configuring {{COMPONENT}} repository
+    ansible.builtin.copy:
+       src: https://rpms.remirepo.net/enterprise/remi-release-8.rpm                     # Location of the file on the machine where youare running the script
+       dest: /tmp  # Location of the file where you want to copy this to remote server
+
+  - name: Install nginx rpm from a local file
+    ansible.builtin.dnf:
+      name: /tmp/remi-release-8.rpm  
+      state: present 
+
+  # - name : Installing {{COMPONENT}}
+  #   ansible.builtin.package:
+  #     name: mongodb-org
+  #     state: present
+
+  # - name: Enabling {{COMPONENT}} visibility
+  #   ansible.builtin.replace:
+  #    path: /etc/mongod.conf
+  #    regexp: '127.0.0.0'
+  #    replace: '0.0.0.0'
+
+  # - name: Restarting {{COMPONENT}} service
+  #   ansible.builtin.systemd_service:
+  #     name: mongod
+  #     state: started
+  #     enabled: yes
+  #     daemon_reload: true
+
