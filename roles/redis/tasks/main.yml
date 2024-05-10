@@ -2,6 +2,7 @@
     ansible.builtin.copy:
        src: https://rpms.remirepo.net/enterprise/remi-release-8.rpm                     # Location of the file on the machine where youare running the script
        dest: /tmp  # Location of the file where you want to copy this to remote server
+       remote_src: yes
 
   - name: Install nginx rpm from a local file
     ansible.builtin.dnf:
