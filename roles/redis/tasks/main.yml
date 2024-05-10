@@ -3,7 +3,7 @@
 
   - name: Install Redis in {{COMPONENT}}
     ansible.builtin.dnf:
-      name: redis
+      name: redis-6.2.13
       state: present
 
   - name: Enabling {{COMPONENT}} visibility
