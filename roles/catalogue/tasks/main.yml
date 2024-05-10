@@ -1,12 +1,12 @@
-- name: Remove the Nodejs 10 package
-  ansible.builtin.dnf:
-    name: nodejs
-    state: absent
+# - name: Remove the Nodejs 10 package
+#   ansible.builtin.dnf:
+#     name: nodejs
+#     state: absent
 
-- name: Install latest Nodejs 18 package
-  ansible.builtin.dnf:
-    name: nodejs
-    state: latest
+# - name: Install latest Nodejs 18 package
+#   ansible.builtin.dnf:
+#     name: nodejs
+#     state: latest
 
 - name : Installing Node JS in {{COMPONENT}}
   ansible.builtin.package:
@@ -30,7 +30,7 @@
 
 - name: Copying {{COMPONENT}} to {{APPUSER}}
   ansible.builtin.copy:
-      src: /tmp/catalogue-main
+      src: /tmp/catalogue-main/
       dest: /home/{{APPUSER}}/{{COMPONENT}}/
       owner: "{{APPUSER}}"
       group: "{{APPUSER}}"
