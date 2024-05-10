@@ -7,7 +7,7 @@
   - name: Install nginx rpm from a local file
     ansible.builtin.dnf:
       name: redis
-      state: present
+      state: latest
     
 
   # - name : Installing {{COMPONENT}}
