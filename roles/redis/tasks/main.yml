@@ -6,9 +6,9 @@
 
   - name: Install nginx rpm from a local file
     ansible.builtin.dnf:
-      name: redis:remi-6.2 
+      name: redis
       state: present
-      remote_src: yes
+    
 
   # - name : Installing {{COMPONENT}}
   #   ansible.builtin.package:
