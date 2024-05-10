@@ -23,5 +23,5 @@
       name: redis
       state: started
       enabled: yes
-      daemon_reload: true
+      daemon_reload: yes
 
