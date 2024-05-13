@@ -14,7 +14,7 @@
       name: 
         - mysql-community-server
         - PyMySQL
-        - MySQL-pytho
+        - mysqlclient
       state: present
      
   - name: Restarting {{COMPONENT}} service
