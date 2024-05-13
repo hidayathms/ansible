@@ -10,7 +10,7 @@
 
   - name : Installing {{COMPONENT}}
     ansible.builtin.dnf:
-      name: mysql-community-server -y
+      name: mysql-community-server
       state: present
   
   - name: Restarting {{COMPONENT}} service
