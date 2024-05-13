@@ -16,7 +16,7 @@
      
   - name: Restarting {{COMPONENT}} service
     ansible.builtin.systemd_service:
-      name: "{{COMPONENT}}"
+      name: mysqld
       state: started
       enabled: yes
 
