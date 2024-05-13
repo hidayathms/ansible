@@ -1,19 +1,21 @@
-  - name: Disable Default repo and MYSQL 8
-    ansible.builtin.dnf:
-      name: mysql
-      state: absent
-  
+
   - name: Configuring {{COMPONENT}} repository
     ansible.builtin.copy:
        src: mysql.repo                      # Location of the file on the machine where youare running the script
        dest: /etc/yum.repos.d/mysql.repo  # Location of the file where you want to copy this to remote server
 
-  # - name : Installing {{COMPONENT}}
-  #   ansible.builtin.package:
-  #     name: mysql
-  #     state: present
+  - name : Installing {{COMPONENT}} package
+    ansible.builtin.package:
+      name: mysql-community-server
+      state: present
      
-  
+  - name: Restarting {{COMPONENT}} service
+    ansible.builtin.systemd_service:
+      name: "{{COMPONENT}}"
+      state: restarted
+      enabled: yes
+
+
   # - name: Extracting the mysql log file
   #   ansible.builtin.slurp:
   #     src: /var/log/mysqld.log
