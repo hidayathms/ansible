@@ -28,6 +28,6 @@
 
   - name: Printing the password file
     debug:
-      msg: " {{pws_log['content'] | b64decode | regex_findall('.*temporary password*.)}}"
+      msg: " {{pws_log['content'] | b64decode | regex_findall('.*temporary password.*')}}"
 
       
