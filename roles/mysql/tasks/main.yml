@@ -1,6 +1,6 @@
 
-  - name : Installing {{COMPONENT}} package
-    ansible.builtin.dnf:
+  - name : Removing mysql 8 from {{COMPONENT}} 
+    ansible.builtin.package:
       name: mysql
       state: absent
 
