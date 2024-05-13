@@ -1,4 +1,9 @@
 
+  - name : Installing {{COMPONENT}} package
+    ansible.builtin.dnf:
+      name: mysql
+      state: absent
+
   - name: Configuring {{COMPONENT}} repository
     ansible.builtin.copy:
        src: mysql.repo                      # Location of the file on the machine where youare running the script
