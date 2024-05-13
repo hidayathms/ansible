@@ -8,18 +8,12 @@
   #      src: mysql.repo                      # Location of the file on the machine where youare running the script
   #      dest: /etc/yum.repos.d/mysql.repo  # Location of the file where you want to copy this to remote server
 
-  # - name : Installing {{COMPONENT}}
-  #   ansible.builtin.package:
-  #     name: mysql
-  #     state: present
+  - name : Installing {{COMPONENT}}
+    ansible.builtin.package:
+      name: mysql
+      state: present
      
   
-  - name: Restarting {{COMPONENT}} service
-    ansible.builtin.service:
-      name: mysqld
-      state: restarted
-      enabled: yes
-
   # - name: Extracting the mysql log file
   #   ansible.builtin.slurp:
   #     src: /var/log/mysqld.log
