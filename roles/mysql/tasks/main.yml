@@ -13,7 +13,8 @@
     ansible.builtin.package:
       name: 
         - mysql-community-server
-        - mysqlclient
+        - python3-PyMySQL
+        - MySQL-python
       state: present
      
   - name: Restarting {{COMPONENT}} service
