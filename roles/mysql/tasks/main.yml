@@ -8,3 +8,9 @@
       name: mysql-community-server
       state: present
   
+  - name: Restarting {{COMPONENT}} service
+    ansible.builtin.systemd_service:
+      name: mysqld
+      state: started
+      enabled: yes
+
