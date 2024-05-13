@@ -10,7 +10,7 @@
 
   - name : Installing {{COMPONENT}}
     ansible.builtin.package:
-      name: mysql 5.7 Comunity Server
+      name: mysql-community-server
       state: present
      
   
