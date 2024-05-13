@@ -9,7 +9,7 @@
        dest: /etc/yum.repos.d/mysql.repo  # Location of the file where you want to copy this to remote server
 
   - name : Installing {{COMPONENT}}
-    ansible.builtin.dnf:
+    ansible.builtin.package:
       name: mysql
       state: present
   
@@ -19,7 +19,7 @@
       state: started
       enabled: yes
 
-  - name: Find out what the remote machine's mounts are
+  - name: Extracting the mysql log file
     ansible.builtin.slurp:
-      src: /proc/mounts
+      src: /var/log/mysqld.log
       register: mounts
