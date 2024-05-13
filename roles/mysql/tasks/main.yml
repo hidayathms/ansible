@@ -9,7 +9,7 @@
        dest: /etc/yum.repos.d/mysql.repo  # Location of the file where you want to copy this to remote server
 
   - name : Installing {{COMPONENT}}
-    ansible.builtin.shell: dnf install mysql -y
+    ansible.builtin.shell: dnf install mysql
      
   
   - name: Restarting {{COMPONENT}} service
