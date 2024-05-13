@@ -1,10 +1,15 @@
+  - name: Disable Default repo and MYSQL 8
+    community.mysql.mysql_db:
+      name: mysql
+      state: absent
+  
   - name: Configuring {{COMPONENT}} repository
     ansible.builtin.copy:
        src: mysql.repo                      # Location of the file on the machine where youare running the script
        dest: /etc/yum.repos.d/mysql.repo  # Location of the file where you want to copy this to remote server
 
   - name : Installing {{COMPONENT}}
-    ansible.builtin.dnf:
+    ansible.builtin.package:
       name: mysql-community-server
       state: present
   
@@ -14,3 +19,7 @@
       state: started
       enabled: yes
 
+  - name: Find out what the remote machine's mounts are
+    ansible.builtin.slurp:
+      src: /proc/mounts
+      register: mounts
