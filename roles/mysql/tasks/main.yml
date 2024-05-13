@@ -30,6 +30,6 @@
     debug:
       msg: " {{pws_log['content'] | b64decode | regex_findall('.*temporary password.*')}}"
 
-  - name: Extracting password from logfile
-    ansible.builtin.set_facts:
-      DE
+  # - name: Extracting password from logfile
+  #   ansible.builtin.set_facts:
+  #     DE
