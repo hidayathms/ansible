@@ -19,7 +19,7 @@
       state: started
       enabled: yes
 
-  - name: Extracting the mysql log file
-    ansible.builtin.slurp:
-      src: /var/log/mysqld.log
-      register: mounts
+  # - name: Extracting the mysql log file
+  #   ansible.builtin.slurp:
+  #     src: /var/log/mysqld.log
+  #     register: mounts
