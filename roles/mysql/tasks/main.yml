@@ -24,4 +24,10 @@
   - name: Extracting the mysql log file
     ansible.builtin.slurp:
       src: /var/log/mysqld.log
-      register: psq_log
+    register: pws_log
+
+  - name: Printing the password file
+    debug:
+      msg: " {{pws_log['content']}}"
+
+      
