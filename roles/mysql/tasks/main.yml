@@ -49,10 +49,12 @@
       - name: Changing default root password
         ansible.builtin.shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'Roboshop@1'" | mysql --connect-expired-password -uroot -p"{{DEFAULT_PASSWORD}}"
 
-
-
+      - name: Changing default root password
+        ansible.builtin.shell: echo "uninstall plugin validate_password;" | mysql -uroot -pRoboshop@1
+      
 # What to do:
 # 1) lets try to get the DB details by sinin in with Roboshop@1
 # 2) if you dont get the info, change the password
 
 # to handle the above scnario we have set of modules called Block and rescue" if any of the tasks of the block failled rescue will be executed.
+
