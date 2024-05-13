@@ -51,7 +51,7 @@
 
       - name: Uninstall Password Validate Plugin
         ansible.builtin.shell: echo "uninstall plugin validate_password;" | mysql -uroot -pRoboshop@1
-      
+        ignore_errors: true
 # What to do:
 # 1) lets try to get the DB details by sinin in with Roboshop@1
 # 2) if you dont get the info, change the password
