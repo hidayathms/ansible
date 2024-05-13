@@ -30,9 +30,26 @@
   #   debug:
   #     msg: " {{pws_log['content'] | b64decode | regex_findall('.*temporary password.*')| join(' ') | split(' ') | last}}"
 
-  - name: Extracting password from logfile
-    ansible.builtin.set_fact:
-      DEFAULT_PASSWORD: "{{pws_log['content'] | b64decode | regex_findall('.*temporary password.*')| join(' ') | split(' ') | last}}"
+# Note- If any of the task in the block fails, tasks in the rescue will be executed
+  - name: Verifying the password
+    block:
+      - name: Get MySQL version with non-default credentials
+        community.mysql.mysql_info:
+          login_user: root
+          login_password: Roboshop@1
+          filter: version
+    rescue:
+      - name: Extracting password from logfile
+        ansible.builtin.set_fact:
+          DEFAULT_PASSWORD: "{{pws_log['content'] | b64decode | regex_findall('.*temporary password.*')| join(' ') | split(' ') | last}}"
 
-  - name: Changing default root password
-    ansible.builtin.shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'Roboshop@1'" | mysql --connect-expired-password -uroot -p"{{DEFAULT_PASSWORD}}"
+      - name: Changing default root password
+        ansible.builtin.shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'Roboshop@1'" | mysql --connect-expired-password -uroot -p"{{DEFAULT_PASSWORD}}"
+
+
+
+What to do:
+1) lets try to get the DB details by sinin in with Roboshop@1
+2) if you dont get the info, change the password
+
+# to handle the above scnario we have set of modules called Block and rescue" if any of the tasks of the block failled rescue will be executed.
