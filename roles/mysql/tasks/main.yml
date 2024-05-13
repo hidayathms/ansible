@@ -4,12 +4,12 @@
        dest: /etc/yum.repos.d/mysql.repo  # Location of the file where you want to copy this to remote server
 
   - name : Installing {{COMPONENT}}
-    ansible.builtin.package:
+    ansible.builtin.dnf:
       name: mysql-community-server
       state: present
   
   - name: Restarting {{COMPONENT}} service
-    ansible.builtin.system:
+    ansible.builtin.systemd_service:
       name: mysqld
       state: started
       enabled: yes
