@@ -1,5 +1,5 @@
   - name: Disable Default repo and MYSQL 8
-    community.mysql.mysql_db:
+    ansible.builtin.dnf:
       name: mysql
       state: absent
   
