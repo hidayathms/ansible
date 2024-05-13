@@ -10,7 +10,7 @@
 
   - name : Installing {{COMPONENT}}
     ansible.builtin.package:
-      name: mysql
+      name: mysql-community-server
       state: present
   
   - name: Restarting {{COMPONENT}} service
@@ -19,7 +19,7 @@
       state: started
       enabled: yes
 
-  # - name: Extracting the mysql log file
-  #   ansible.builtin.slurp:
-  #     src: /var/log/mysqld.log
-  #     register: mounts
+  - name: Extracting the mysql log file
+    ansible.builtin.slurp:
+      src: /var/log/mysqld.log
+      register: psq_log
