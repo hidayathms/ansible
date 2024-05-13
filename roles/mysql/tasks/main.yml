@@ -13,7 +13,6 @@
     ansible.builtin.package:
       name: 
         - mysql-community-server
-        - PyMySQL
         - mysqlclient
       state: present
      
