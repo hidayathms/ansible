@@ -64,7 +64,7 @@
       dest: /tmp
       remote_src: yes    
 
-  - name: Injecting the schema
+  - name: Injecting the {{COMPONENT}} schema
     community.mysql.mysql_db:
      login_user: root
      login_password: "{{MYSQL_PWD}}"
