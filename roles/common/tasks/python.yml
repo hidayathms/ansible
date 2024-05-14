@@ -1,9 +1,9 @@
 - name : Installing Python3 
-  ansible.builtin.package: "{{item}}"
-  loop:
-    - python36
-    - gcc 
-    - python3-devel
+  ansible.builtin.package:
+   - name:
+     - python36
+     - gcc 
+     - python3-devel
   state: present
 
 - name: Configuring {{COMPONENT}}
