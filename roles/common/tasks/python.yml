@@ -1,5 +1,6 @@
 - name : Installing Python3 in {{COMPONENT}}
   ansible.builtin.package: "{{item}}"
+  loop:
     - python36
     - gcc 
     - python3-devel
