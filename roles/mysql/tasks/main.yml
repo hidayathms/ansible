@@ -66,10 +66,10 @@
 
   - name: Injecting the {{COMPONENT}} schema
     community.mysql.mysql_db:
-     state: import
+    #  state: import
      login_user: root
      login_password: "{{MYSQL_PWD}}"
-     target: /tmp/{{COMPONENT}}-main/shipping.sql
+     target: /tmp/mysql-main/shipping.sql
 
   # - name: Configuring the server name
   #   ansible.builtin.shell:  set-hostname {{COMPONENT}}
