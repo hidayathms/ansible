@@ -21,6 +21,17 @@
   ansible.builtin.pip:
     requirements: /home/{{APPUSER}}/{{COMPONENT}}/requirements.txt
 
+- name: Updating the UID in {{COMPONENT}}.ini file
+  ansible.builtin.lineinfile:
+    path: /home/{{APPUSER}}/{{COMPONENT}}/{{COMPONENT}}.ini 
+    regex: '^uid'
+    line: uid = {{USERINFO.uid}}
+
+- name: Updating the UID in {{COMPONENT}}.ini file
+  ansible.builtin.lineinfile:
+    path: /home/{{APPUSER}}/{{COMPONENT}}/{{COMPONENT}}.ini 
+    regex: '^uid'
+    line: uid = {{USERINFO.group}}
 
 # - name: Configuring hostname and environment name
 #   ansible.builtin.include_role:

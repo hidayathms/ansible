@@ -1,3 +1,8 @@
 - name: Creating {{APPUSER}} user
   ansible.builtin.user:
     name: "{{APPUSER}}"
+  register: USERINFO
+
+# - name: Registering the APPUSER info
+#   ansible.builtin.debug:
+#     msg: Value of user id info
