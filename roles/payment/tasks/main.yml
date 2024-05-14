@@ -4,20 +4,20 @@
     name: common
     tasks_from: python
 
-# - name: Replace id and group id in {{COMPONENT}}.ini
-#   ansible.builtin.replace:
-#     path: /etc/payment.ini
-#     regexp: 'uid'
-#     replace: '1000'
+# # - name: Replace id and group id in {{COMPONENT}}.ini
+# #   ansible.builtin.replace:
+# #     path: /etc/payment.ini
+# #     regexp: 'uid'
+# #     replace: '1000'
 
-# - name: Copying {{COMPONENT}} systemd file
-#   ansible.builtin.template:
-#     src: systemd.service
-#     dest: /etc/systemd/system/{{COMPONENT}}.service
+# # - name: Copying {{COMPONENT}} systemd file
+# #   ansible.builtin.template:
+# #     src: systemd.service
+# #     dest: /etc/systemd/system/{{COMPONENT}}.service
 
-- name: Restarting {{COMPONENT}} service
-  ansible.builtin.systemd_service:
-    name: "{{COMPONENT}}"
-    state: started
-    enabled: yes
+# - name: Restarting {{COMPONENT}} service
+#   ansible.builtin.systemd_service:
+#     name: "{{COMPONENT}}"
+#     state: started
+#     enabled: yes
   
