@@ -32,7 +32,7 @@
 - name: Install specified python requirements
   ansible.builtin.pip:
     requirements: /home/{{APPUSER}}/{{COMPONENT}}/requirements.txt
-    # executable: pip3.6
+    executable: pip3.6
 
 - name: Configuring and starting {{COMPONENT}} service
   ansible.builtin.include_role:
