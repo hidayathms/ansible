@@ -3,6 +3,11 @@
     ansible.builtin.package:
       name: mysql
       state: absent
+  
+  # - name: Performing Cleanup
+  #   ansible.builtin.file:
+  #     path: /var/log/mysqld.log
+  #     state: absent
 
   - name: Configuring {{COMPONENT}} repository
     ansible.builtin.copy:
@@ -23,10 +28,7 @@
       state: started
       enabled: yes
 
-  - name: Performing Cleanup
-    ansible.builtin.file:
-      path: /var/log/mysqld.log
-      state: absent
+
 
   - name: Extracting the mysql log file
     ansible.builtin.slurp:
