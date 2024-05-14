@@ -72,5 +72,9 @@
      login_password: "{{MYSQL_PWD}}"
      target: /tmp/{{COMPONENT}}-main/shipping.sql
 
-  # - name: Configuring the server name
-  #   ansible.builtin.shell:  set-hostname {{COMPONENT}}
+
+  - name: Configuring hostname and environment name
+    ansible.builtin.include_role:
+      name: common
+      tasks_from: set_hostname
+  

@@ -25,3 +25,8 @@
       read_priv: .*
       write_priv: .*
       state: present
+
+  - name: Configuring hostname and environment name
+    ansible.builtin.include_role:
+      name: common
+      tasks_from: set_hostname
