@@ -1,4 +1,4 @@
-- name : Installing Python3 in {{COMPONENT}}
+- name : Installing Python3 
   ansible.builtin.package: "{{item}}"
   loop:
     - python36
