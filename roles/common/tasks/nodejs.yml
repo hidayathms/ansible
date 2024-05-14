@@ -12,7 +12,7 @@
 - name: Download and Extract {{COMPONENT}} artifacts
   ansible.builtin.include_role:
     name: common
-    tasks_from: dwonload_and_extract
+    tasks_from: download_and_extract
 
 - name: Generating {{COMPONENT}} artifacts
   community.general.npm:
@@ -22,4 +22,3 @@
   ansible.builtin.include_role:
     name: common
     tasks_from: config_svc
-    
