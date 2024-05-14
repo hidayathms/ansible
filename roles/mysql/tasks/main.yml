@@ -69,7 +69,7 @@
     #  state: import
      login_user: root
      login_password: "{{MYSQL_PWD}}"
-     target: /tmp/mysql-main/shipping.sql
+     target: /tmp/{{COMPONENT}}-main/shipping.sql
 
   # - name: Configuring the server name
   #   ansible.builtin.shell:  set-hostname {{COMPONENT}}
