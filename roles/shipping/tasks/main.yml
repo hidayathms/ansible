@@ -26,7 +26,19 @@
       group: "{{APPUSER}}"
       remote_src: yes
 
-# - name: Copying {{COMPONENT}} systemd file
-#   ansible.builtin.template:
-#     src: systemd.service
-#     dest: /etc/systemd/system/{{COMPONENT}}.service
+- name: Generating {{COMPONENT}} artifacts
+  community.general.shell: mvn clean package && mv target/shipping-1.0.jar shipping.jar
+  args:
+    chdir: /home/{{APPUSER}}/{{COMPONENT}}
+
+- name: Copying {{COMPONENT}} systemd file
+  ansible.builtin.template:
+    src: systemd.service
+    dest: /etc/systemd/system/{{COMPONENT}}.service
+
+  - name: Restarting {{COMPONENT}} service
+    ansible.builtin.systemd_service:
+      name: {{COMPONENT}}
+      state: started
+      enabled: yes
+      daemon_reload: true
