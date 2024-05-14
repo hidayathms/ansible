@@ -1,10 +1,10 @@
 - name : Installing Python3 
   ansible.builtin.package:
-   - name:
-     - python36
-     - gcc 
-     - python3-devel
-  state: present
+    name:
+      - python36
+      - gcc 
+      - python3-devel
+    state: present
 
 - name: Configuring {{COMPONENT}}
   ansible.builtin.include_role:
