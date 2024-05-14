@@ -1,5 +1,5 @@
   - name: Configuring {{COMPONENT}} ERLANG dependencies
-  - name: Installing ERLANG 
+  # - name: Installing ERLANG 
     ansible.builtin.shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | sudo bash
 
   - name: Configuring the {{COMPONENT}} repo
