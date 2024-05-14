@@ -1,0 +1,27 @@
+- name : Installing Python3 in {{COMPONENT}}
+  ansible.builtin.package:
+    - python36
+    - gcc 
+    - python3-devel
+  state: present
+
+- name: Configuring {{COMPONENT}}
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: create_user
+
+- name: Download and Extract {{COMPONENT}} artifacts
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download_and_extract
+
+
+- name: Install specified python requirements
+  ansible.builtin.pip:
+    requirements: /home/{{APPUSER}}/{{COMPONENT}}/requirements.txt
+
+
+# - name: Configuring hostname and environment name
+#   ansible.builtin.include_role:
+#     name: common
+#     tasks_from: set_hostname

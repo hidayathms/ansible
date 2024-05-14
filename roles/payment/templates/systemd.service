@@ -1,11 +1,18 @@
 [Unit]
-Description = Catalogue Service
+Description=Payment Service
+
 [Service]
-User=roboshop
-Environment=MONGO=true
-Environment=MONGO_URL="mongodb://mongodb-{{ENV}}.roboshop.internal:27017/catalogue"
-ExecStart=/bin/node /home/roboshop/catalogue/server.js
-SyslogIdentifier=catalogue
+User=root
+WorkingDirectory=/home/roboshop/payment
+
+Environment=CART_HOST=CARTHOST
+Environment=USER_HOST=USERHOST
+Environment=AMQP_HOST=AMQPHOST
+Environment=AMQP_USER=roboshop
+Environment=AMQP_PASS=roboshop123
+
+ExecStart=/usr/local/bin/uwsgi --ini payment.ini
+SyslogIdentifier=payment
 
 [Install]
 WantedBy=multi-user.target
