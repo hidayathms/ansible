@@ -53,10 +53,10 @@
           DEFAULT_PASSWORD: "{{pws_log['content'] | b64decode | regex_findall('.*temporary password.*')| join(' ') | split(' ') | last}}"
 
       - name: Changing default root password
-        ansible.builtin.shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1'" | mysql --connect-expired-password -uroot -p"{{DEFAULT_PASSWORD}}"
+        ansible.builtin.shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'Roboshop@1'" | mysql --connect-expired-password -uroot -p"{{DEFAULT_PASSWORD}}"
 
       - name: Uninstall Password Validate Plugin
-        ansible.builtin.shell: echo "uninstall plugin validate_password;" | mysql -uroot -pRoboShop@1
+        ansible.builtin.shell: echo "uninstall plugin validate_password;" | mysql -uroot -pRoboshop@1
         ignore_errors: true
 # What to do:
 # 1) lets try to get the DB details by sinin in with Roboshop@1
