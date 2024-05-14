@@ -4,42 +4,22 @@
     state: present
 
 
-- name: Creating {{APPUSER}} user
-  ansible.builtin.user:
-    name: "{{APPUSER}}"
+- name: Configuring {{COMPONENT}}
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: create_user
 
-- name: Download and Extracting {{COMPONENT}}
-  ansible.builtin.unarchive:
-    src: https://github.com/stans-robot-project/{{COMPONENT}}/archive/main.zip
-    dest: /tmp
-    remote_src: yes
-
-- name: Performing Cleanup
-  ansible.builtin.file:
-    path: /home/{{APPUSER}}/{{COMPONENT}}
-    state: absent
-
-
-- name: Copying {{COMPONENT}} to {{APPUSER}}
-  ansible.builtin.copy:
-      src: /tmp/{{COMPONENT}}-main/
-      dest: /home/{{APPUSER}}/{{COMPONENT}}/
-      owner: "{{APPUSER}}"
-      group: "{{APPUSER}}"
-      remote_src: yes 
+- name: Download and Extract {{COMPONENT}} artifacts
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: dwonload_and_extract
 
 - name: Generating {{COMPONENT}} artifacts
   community.general.npm:
      path: /home/{{APPUSER}}/{{COMPONENT}}/
 
-- name: Copying {{COMPONENT}} systemd file
-  ansible.builtin.template:
-    src: systemd.service
-    dest: /etc/systemd/system/{{COMPONENT}}.service
-
-- name: Restarting {{COMPONENT}} service
-  ansible.builtin.systemd_service:
-    name: "{{COMPONENT}}"
-    state: restarted
-    enabled: yes
-    daemon_reload: yes
+- name: Configuring and starting {{COMPONENT}} service
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: config_svc
+    
