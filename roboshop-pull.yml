@@ -1,0 +1,7 @@
+# prerequisite : the machine that you are running this should have ansible installed.
+
+- name: Configuring roboshop project
+  hosts: localhost  # This defines playbook will be executed on top of the same machine only
+  become: true
+  roles:
+    - role: "{{COMPONENT}}"
