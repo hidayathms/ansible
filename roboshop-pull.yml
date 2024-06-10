@@ -2,6 +2,6 @@
 
 - name: Configuring roboshop project
   hosts: localhost  # This defines playbook will be executed on top of the same machine only
-  become: true
+  become: True
   roles:
     - role: "{{COMPONENT}}"
