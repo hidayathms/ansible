@@ -1,22 +1,29 @@
-- name : Installing Node JS in {{COMPONENT}}
+- name : Installing NodeJS in {{COMPONENT}}
   ansible.builtin.package:
     name: nodejs
     state: present
 
 
-- name: Configuring {{COMPONENT}}
+- name: Configuring User Account
   ansible.builtin.include_role:
     name: common
     tasks_from: create_user
 
-- name: Download and Extract {{COMPONENT}} artifacts
+###------ Uncomment it if you want the artifact from Github
+# - name: Download and Extract {{COMPONENT}} artifacts
+#   ansible.builtin.include_role:
+#     name: common
+#     tasks_from: download_and_extract
+
+- name: Download and Extract {{COMPONENT}} artifacts from Nexus
   ansible.builtin.include_role:
     name: common
-    tasks_from: download_and_extract
+    tasks_from: download_from_nexus
 
-- name: Generating {{COMPONENT}} artifacts
-  community.general.npm:
-     path: /home/{{APPUSER}}/{{COMPONENT}}/
+#####----- Uncomment it if you want the artifact from Github
+# - name: Generating {{COMPONENT}} artifacts
+#   community.general.npm:
+#      path: /home/{{APPUSER}}/{{COMPONENT}}/
 
 - name: Configuring and starting {{COMPONENT}} service
   ansible.builtin.include_role:
