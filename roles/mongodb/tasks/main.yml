@@ -14,12 +14,12 @@
      regexp: '127.0.0.1'
      replace: '0.0.0.0'
 
-  - name: Starting {{COMPONENT}} Service
-    ansible.builtin.systemd:
-      name: mongod 
+  - name: Restarting {{COMPONENT}} service
+    ansible.builtin.systemd_service:
+      name: mongod
       state: started
       enabled: yes
-      daemon_reload: ye
+      daemon_reload: true
 
   - name: Download and Extracting {{COMPONENT}} schema
     ansible.builtin.unarchive:
@@ -40,7 +40,7 @@
       file: "/tmp/mongodb-main/catalogue.js"
       idempotent: yes
   
-  # - name: Configuring hostname and environment name
-  #   ansible.builtin.include_role:
-  #     name: common
-  #     tasks_from: set_hostname
+  - name: Configuring hostname and environment name
+    ansible.builtin.include_role:
+      name: common
+      tasks_from: set_hostname
