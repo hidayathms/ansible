@@ -19,7 +19,7 @@
       name: mongod
       state: started
       enabled: yes
-      daemon_reload: true
+      # daemon_reload: true
 
   - name: Download and Extracting {{COMPONENT}} schema
     ansible.builtin.unarchive:
