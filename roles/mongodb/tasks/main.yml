@@ -14,12 +14,12 @@
      regexp: '127.0.0.1'
      replace: '0.0.0.0'
 
-  - name: Restarting {{COMPONENT}} service
-    aansible.builtin.systemd:
-      name: mongod
+  - name: Starting {{COMPONENT}} Service
+    ansible.builtin.systemd:
+      name: mongod 
       state: started
       enabled: yes
-      # daemon_reload: true
+      daemon_reload: yes
 
   - name: Download and Extracting {{COMPONENT}} schema
     ansible.builtin.unarchive:
