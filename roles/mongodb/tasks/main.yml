@@ -40,7 +40,7 @@
       file: "/tmp/mongodb-main/catalogue.js"
       idempotent: yes
   
-  - name: Configuring hostname and environment name
-    ansible.builtin.include_role:
-      name: common
-      tasks_from: set_hostname
+  # - name: Configuring hostname and environment name
+  #   ansible.builtin.include_role:
+  #     name: common
+  #     tasks_from: set_hostname
